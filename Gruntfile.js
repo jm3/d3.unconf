@@ -148,6 +148,10 @@ module.exports = function (grunt) {
             , dot : false
           }
 
+        , scripts: {
+          files: ['**/*.js'],
+        }
+
         , less: {
             files: [config.paths.src + '/**/*.less']
           , tasks: ['less:watch']
@@ -159,6 +163,8 @@ module.exports = function (grunt) {
               'jade:watch'
           ]
         }
+
+
 
       }
 
