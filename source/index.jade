@@ -15,20 +15,21 @@ html(lang='en')
   body
     .page
       h1 d3.swimmo
-      a(href="http://d3js.org/", target="_blank") d3 docs
+      .graphs
+        .graph.dummy
+        //- actual interesting graphs would go here
+        //- ...
+
+      ul.nav
+        li
+          a(href="http://github.com/jm3/d3swimmo") source code
+        li
+          a(href="http://d3js.org/") d3 docs
 
     // build:js(source/) javascripts/app.min.js
     script(src='vendor/jquery/jquery-1.10.2.min.js')
     script(src='vendor/d3/d3.min.js')
     script(src="vendor/d3/queue.v1.min.js")
+    script(src="javascripts/graphs.js")
     // endbuild
-
-    script
-      var csv_uri = "http://proof.ly/gdoc-swim-data";
-      queue()
-        .defer( d3.csv, csv_uri)
-        .await(ready)
-
-      // jade barfs if this is on more than one line...!!!!!!!????? #fml #nodejs #cool
-      function ready(error, data) { $.each( data, function(index, val) { console.log(val) }) }
 
