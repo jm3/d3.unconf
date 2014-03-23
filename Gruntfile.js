@@ -54,16 +54,6 @@ module.exports = function (grunt) {
           }
         }
 
-      , karma: {
-          e2e: {
-              configFile: 'karma-e2e.conf.js'
-          },
-          unit: {
-              configFile: 'karma.conf.js'
-            , singleRun: true
-          }
-      }
-
       // aws, s3, and cloudfront do not currently auto-negotiate requests to gzip'd files
       // so uploading the compressed files currently does nothing.
       // , compress : { options : { mode : 'gzip' } , production : { files : [{ expand : true , cwd    : config.paths.dist , src    : ['**/*', '!**/*.{gif,jpg,jpeg,png}'] , dest   : config.paths.dist }] } }
@@ -149,16 +139,6 @@ module.exports = function (grunt) {
             ]
             , dest   : ''
           }]
-        }
-      }
-
-      , asciify : {
-          options : {
-              font : "speed" // http://www.flamingtext.com/tools/figlet/fontlist.html
-            , log : true
-          }
-        , ready : {
-            text : "ready!"
         }
       }
 
@@ -400,15 +380,12 @@ module.exports = function (grunt) {
       , 'aws_s3:production_compressed'
     ]);
 
-    grunt.registerTask('log:ready',function(){ grunt.log.write('<%= asciify_ready %>'); });
-
     grunt.registerTask('server', [
         'clean:watch'
       , 'enable_force'
       , 'jade:watch'
       , 'less:watch'
       , 'connect:development'
-      , 'asciify:ready'
       , 'watch'
     ]);
 
@@ -423,13 +400,11 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test:unit', [
         'connect:test'
-      , 'karma:unit'
     ]);
 
 
     grunt.registerTask('test:e2e', [
         'connect:test'
-      , 'karma:e2e'
     ]);
 
     grunt.registerTask('build', [
