@@ -7,15 +7,13 @@ queue()
 
 function ready( error, data ) {
 
-d3.select(".dummy")
-  .selectAll("div")
-    .data(data)
-  .enter().append("div")
-    .style("width", function(d) { return (50 + d['Place'] * 10) + "px"; })
-    .text(function(d) { return d['Meet'] + " " + d['Place']; });
+  d3.select(".dummy")
+    .selectAll("div")
+      .data(data, function(d) { return d['Date']+d['Time']; })
+    .enter().append("div")
+      .style("width", function(d) { return (50 + d['Place'] * 10) + "px"; })
+      .style("color", function(d) { return (50 + d['Place'] * 10) + "px"; })
+      .text(function(d) { return d['Meet'] + ": " + d['Place']; });
 
-  $.each(data, function(index, val) {
-    console.log(val)
-  });
+  // dump data: $.each(data, function(index, val) { console.log(val) });
 };
-
