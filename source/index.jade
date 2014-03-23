@@ -24,10 +24,7 @@ html(lang='en')
     // endbuild
 
     script
-
-      // google doc of swim data
-      var csv_uri = "https://docs.google.com/spreadsheet/pub?key=0Aq5dBJnSM4yYdHVQQ1FmV1hSNzUwRG82MTFWWl9KNUE&output=csv";
-
+      var csv_uri = "http://proof.ly/gdoc-swim-data";
       queue()
         .defer( d3.csv, csv_uri)
         .await(ready)
