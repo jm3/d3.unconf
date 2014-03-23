@@ -1,12 +1,13 @@
-!!! 5
+doctype
 html(lang='en')
   head
     meta(charset='utf-8')
     meta(name='description', content='')
     meta(name='author', content='jm3')
     title d3 swimmo
-    //- the build/endbuild comments are significant, used by usemin to crunch css
+
     // build:css stylesheets/app.min.css
+    //- the build directives will cause these to be bundled into one file
     link(rel="stylesheet",type="text/css",href="stylesheets/fonts.css")
     link(rel="stylesheet",type="text/css",href="stylesheets/base.css")
     // endbuild
@@ -29,11 +30,8 @@ html(lang='en')
 
       queue()
         .defer( d3.csv, csv_uri)
-        .await(ready);
+        .await(ready)
 
-      function ready(error, data) {
-        $.each( data, function( index, val ) {
-          console.log( val );
-        });
-      }
+      // jade barfs if this is on more than one line...!!!!!!!????? #fml #nodejs #cool
+      function ready(error, data) { $.each( data, function(index, val) { console.log(val) }) }
 
