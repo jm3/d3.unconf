@@ -1,6 +1,6 @@
 var wave_json;
 var wave_uri = "http://public.jm3.net/d3/geiger.json";
-var max_points = 1024;
+var max_points = 512;
 
 var width = 960,
 height = 60;
@@ -12,7 +12,10 @@ d3.json( wave_uri, function(error, json) {
 });
 
 function div_render( data, div ) {
-  var scale = 0.001;
+  var y = d3.scale.linear().range([0, height]);
+  y.domain([0, d3.max(data, function(d) { return d; })]);
+  var x = d3.scale.linear().domain([0,data.length]);
+
   d3.select( div ).selectAll("div")
     .data(wave_json)
     .enter()
@@ -22,11 +25,10 @@ function div_render( data, div ) {
       return Math.abs(width/data.length) + "px";
     })
     .style("height", function(d) {
-      var barHeight = Math.abs(d) * scale;
-      return parseInt(barHeight) + "px";
+      return y(d) + "px";
     })
     .style("margin-bottom", function(d) {
-      return (d > 0) ? 0 : parseInt(scale * d) + "px";
+      return (d > 0) ? 0 : parseInt(d) + "px";
     });
 }
 
