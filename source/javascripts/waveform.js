@@ -2,8 +2,8 @@ var wave_json;
 var wave_uri = "http://public.jm3.net/d3/geiger.json";
 var max_points = 512;
 
-var svg_height = 50;
-var svg_width  = 500;
+var width = 960,
+height = 60;
 
 d3.json( wave_uri, function(error, json) {
   wave_json = json.data.slice(1, max_points);
@@ -12,11 +12,7 @@ d3.json( wave_uri, function(error, json) {
 });
 
 function svg_render( data, svg ) {
-  var node = d3.select(svg).append("svg").attr("width", svg_width).attr("height", svg_height);
-  d( "svg" );
-
-  var width = 960,
-  height = 50;
+  var node = d3.select(svg).append("svg").attr("width", width).attr("height", height);
 
   var y = d3.scale.linear().range([height, 0]);
 
@@ -36,30 +32,13 @@ function svg_render( data, svg ) {
     bar.append("rect")
       .attr("y", 0)
       .attr("height", function(d) { 
-      h = (height - y(d)) + "px";
-      return y(d) + "px"; })
+        return y(d); })
       .attr("width", barWidth - 1);
-
-  /*
-    bar.append("text")
-      .attr("x", barWidth / 2)
-      .attr("y", function(d) { 
-        yval = (y(d) + 3) + "px";
-        return yval;
-      })
-      .attr("dy", ".75em")
-      .text(function(d) { return d; });
-  */
-
-  function type(d) {
-    d.value = +d.value; // coerce to number
-    return d;
-  }
 
 }
 
 function div_render( data, div ) {
-  var scale = 0.006;
+  var scale = 0.001;
   d3.select( div ).selectAll("div")
     .data(wave_json)
     .enter()
