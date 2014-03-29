@@ -1,9 +1,8 @@
 .waveform > svg {
-  border: 2px solid green;
+  border: 2px solid gray;
 }
 
 .waveform > div {
-  display: none;
   padding:  10px;
   border:   2px solid #ddd;
   height:   500px;
@@ -13,5 +12,13 @@
     background-color:  red;
     width:             2px;
   }
+}
+
+.waveform svg g rect {
+  fill: steelblue;
+}
+
+.waveform svg text {
+  text-anchor: end;
 }
 
