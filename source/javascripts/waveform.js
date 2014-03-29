@@ -11,6 +11,25 @@ d3.json( wave_uri, function(error, json) {
   svg_render( wave_json, ".waveform" );
 });
 
+function div_render( data, div ) {
+  var scale = 0.001;
+  d3.select( div ).selectAll("div")
+    .data(wave_json)
+    .enter()
+    .append("div")
+    .attr("class", "bar")
+    .style("width", function(d) {
+      return (width/data.length) + "px";
+    })
+    .style("height", function(d) {
+      var barHeight = Math.abs(d) * scale;
+      return parseInt(barHeight) + "px";
+    })
+    .style("margin-bottom", function(d) {
+      return (d > 0) ? 0 : parseInt(scale * d) + "px";
+    });
+}
+
 function svg_render( data, svg ) {
   var node = d3.select(svg).append("svg").attr("width", width).attr("height", height);
 
@@ -35,25 +54,6 @@ function svg_render( data, svg ) {
         return y(d); })
       .attr("width", barWidth - 1);
 
-}
-
-function div_render( data, div ) {
-  var scale = 0.001;
-  d3.select( div ).selectAll("div")
-    .data(wave_json)
-    .enter()
-    .append("div")
-    .attr("class", "bar")
-    .style("width", function(d) {
-      return (width/data.length) + "px";
-    })
-    .style("height", function(d) {
-      var barHeight = Math.abs(d) * scale;
-      return parseInt(barHeight) + "px";
-    })
-    .style("margin-bottom", function(d) {
-      return (d > 0) ? 0 : parseInt(scale * d) + "px";
-    });
 }
 
 function d( s ) {
