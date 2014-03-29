@@ -14,7 +14,7 @@ d3.json( wave_uri, function(error, json) {
 function svg_render( data, svg ) {
   var node = d3.select(svg).append("svg").attr("width", width).attr("height", height);
 
-  var y = d3.scale.linear().range([height, 0]);
+  var y = d3.scale.linear().range([height/2, 0]);
 
   var chart = node
     .attr("width", width)
