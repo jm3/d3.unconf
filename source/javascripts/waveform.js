@@ -44,6 +44,9 @@ function div_render( data, div ) {
     .enter()
     .append("div")
     .attr("class", "bar")
+    .style("width", function(d) {
+      return (width/data.length) + "px";
+    })
     .style("height", function(d) {
       var barHeight = Math.abs(d) * scale;
       return parseInt(barHeight) + "px";
