@@ -1,0 +1,35 @@
+doctype
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='description', content='')
+    meta(name='author', content='jm3')
+    title d3 waveform
+
+    // build:css stylesheets/app.min.css
+    //- the build directives will cause these to be bundled into one file
+    link(rel="stylesheet",type="text/css",href="stylesheets/fonts.css")
+    link(rel="stylesheet",type="text/css",href="stylesheets/base.css")
+    link(rel="stylesheet",type="text/css",href="stylesheets/waveform.css")
+    // endbuild
+
+  body
+    .page
+      h1 d3.waveform
+      .waveform
+        div
+      .graphs
+
+      ul.nav
+        li
+          a(href="http://github.com/jm3") source code
+        li
+          a(href="http://d3js.org/") d3 docs
+
+    // build:js(source/) javascripts/app.min.js
+    script(src='vendor/jquery/jquery-1.10.2.min.js')
+    script(src='vendor/d3/d3.min.js')
+    script(src="vendor/d3/queue.v1.min.js")
+    script(src="javascripts/waveform.js")
+    // endbuild
+
