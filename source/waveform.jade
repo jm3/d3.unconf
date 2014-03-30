@@ -19,16 +19,12 @@ html(lang='en')
         | d3.waveform &middot; 
         a(href="http://www.jm3.net/") john manoogian III
       .waveform
-        h6 render as div
-        div
-          .axis
-        h6 render as SVG
 
-      ul.nav
-        li
-          a(href="https://github.com/jm3/d3.unconf") source code
-        li
-          a(href="http://d3js.org/") d3 docs
+        h2 divs:
+        div
+
+        h2 SVG:
+        .svg
 
     // build:js(source/) javascripts/app.min.js
     script(src='vendor/jquery/jquery-1.10.2.min.js')

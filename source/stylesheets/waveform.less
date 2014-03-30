@@ -1,7 +1,10 @@
-@height:  60px;
-@width:   960px;
+@height:      140px;
+@width:       960px;
+@axis_width:  40px;
 
-* { margin: 0; }
+* {
+  margin: 0;
+}
 
 html {
   margin: 1.0em;
@@ -13,26 +16,37 @@ html {
   height:   @height;
   padding:  2px;
   width:    960px;
+  margin-left: @axis_width;
+  position: relative;
 }
 
 .waveform > div {
-  position: relative;
-  .axis {
-    opacity:        0.5;
-    height:         1px;
-    width:          960px;
-    position:       absolute;
-    border-bottom:  1px dashed black;
-    top:            @height / 2;
-  }
   div.bar {
     background-color:  red;
-    position: absolute;
-    opacity: 0.5;
+    position:          absolute;
   }
 }
 
-.waveform svg g rect {
-  fill: red;
+.waveform .svg {
+  g rect {
+    fill:     red;
+    opacity:  0.5;
+  }
 }
+
+.axis {
+  position:  absolute;
+  top:       4px;
+  left:      -@axis_width;
+  g {
+    path.domain {
+      display: none;
+    }
+
+    text {
+      font-size: 7px;
+    }
+  }
+}
+
 
