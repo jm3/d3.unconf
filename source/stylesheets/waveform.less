@@ -4,20 +4,44 @@
 
 * {
   margin: 0;
+  font-family: 'Amatic SC', cursive;
 }
 
 html {
   margin: 1.0em;
 }
 
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+h1 a,
+h1 a:visited {
+  text-decoration:  none;
+  font-weight:      normal;
+  font-size:        90%;
+  color:            #000;
+  border-bottom:    1px dashed #bbb;
+}
+
+h1 a:hover {
+  color: red;
+}
+
 .waveform > svg,
 .waveform > div {
-  border:   2px solid #ddd;
-  height:   @height;
-  padding:  2px;
-  width:    960px;
-  margin-left: @axis_width;
-  position: relative;
+  border:       2px solid #ddd;
+  height:       @height;
+  margin-left:  @axis_width;
+  padding:      2px;
+  position:     relative;
+  width:        960px;
+}
+
+.waveform h2 {
+  margin-left:  @axis_width;
+  font-size:    36px;
 }
 
 .waveform > div {
@@ -34,19 +58,27 @@ html {
   }
 }
 
+.soundcloud_embed {
+  display:      none;
+  opacity:      0.5;
+  margin-left:  @axis_width;
+  width:        @width + 8px; /* weird padding offset; SC embed is slightly too short? */
+}
+
 .axis {
-  position:  absolute;
-  top:       4px;
-  left:      -@axis_width;
+  position: absolute;
+  top:      4px;
+  left:    -@axis_width;
   g {
     path.domain {
       display: none;
     }
 
     text {
-      font-size: 7px;
+      font-family: 'Roboto', sans-serif;
+      opacity:      0.5;
+      font-size:    10px;
     }
   }
 }
-
 

@@ -4,19 +4,18 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='description', content='')
     meta(name='author', content='jm3')
-    title d3 waveform
+    title d3 audio waveforms
 
     // build:css stylesheets/app.min.css
     //- the build directives will cause these to be bundled into one file
-    link(rel="stylesheet",type="text/css",href="stylesheets/fonts.css")
+    link(rel="stylesheet",type="text/css",href="http://fonts.googleapis.com/css?family=Roboto:400,100|Raleway:400,200|Amatic+SC")
     link(rel="stylesheet",type="text/css",href="stylesheets/base.css")
     link(rel="stylesheet",type="text/css",href="stylesheets/waveform.css")
     // endbuild
 
   body
     .page
-      h1 
-        | d3.waveform &middot; 
+      h1 d3 audio waveforms &middot;
         a(href="http://www.jm3.net/") john manoogian III
       .waveform
 
@@ -25,6 +24,9 @@ html(lang='en')
 
         h2 SVG:
         .svg
+
+         // h2 Audio:
+      iframe.soundcloud_embed(width="100%", height="166", scrolling="no", frameborder="no", src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/141102884&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=true")
 
     // build:js(source/) javascripts/app.min.js
     script(src='vendor/jquery/jquery-1.10.2.min.js')
