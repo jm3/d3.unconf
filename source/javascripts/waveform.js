@@ -16,30 +16,28 @@ d3.json( wave_uri, function(error, json) {
 });
 
 function div_render( data, div ) {
-
   var y = d3.scale.linear().range([height, -height]);
   var x = d3.scale.linear().domain([0, data.length]);
   var max_val = d3.max(data, function(d) { return d; });
   y.domain([-max_val, max_val]);
+  var bar_width = width/data.length;
 
   d3.select( div ).selectAll("div")
     .data(wave_json)
     .enter()
     .append("div")
     .attr("class", "bar")
-    .style("width", function(d) {
-      return Math.abs(width/data.length) + "px";
-    })
+    .style("width", 2 + "px" )
     .style("height", function(d,i) {
-      var h = parseInt(Math.abs(y(d)));
-      return h + "px";
+      return y(d) + "px";
     })
     .style("bottom", function(d) {
-      var bottom = height - Math.abs(y(d)/2) - height/2 + 2; // 2px slide up
+      // 2px slide up because 2px padding
+      var bottom = height - Math.abs(y(d)/2) - height/2 + 2;
       return bottom + "px";
     })
     .style("left", function(d,i) {
-      var left =  x(i)*width;
+      var left =  x(i)*width; // could also do: i * bar_width;
       return left + "px";
     });
 }
@@ -47,27 +45,28 @@ function div_render( data, div ) {
 function svg_render( data, svg ) {
   var node = d3.select(svg).append("svg").attr("width", width).attr("height", height);
 
-  var y = d3.scale.linear().range([height/2, 0]);
+  var y = d3.scale.linear().range([height, -height]);
+  var max_val = d3.max(data, function(d) { return d; });
+  y.domain([-max_val, max_val]);
+  var bar_width = width / data.length;
 
-  var chart = node
-    .attr("width", width)
-    .attr("height", height);
+  var chart = node.attr("width", width).attr("height", height);
 
-    y.domain([0, d3.max(data, function(d) { return d; })]);
+  var bar = chart.selectAll("g")
+    .data(data)
+    .enter().append("g") // svg "group"
+    .attr("transform", function(d, i) {
+      return "translate(" + i * bar_width + ",0)";
+    });
 
-    var barWidth = width / data.length;
-
-    var bar = chart.selectAll("g")
-        .data(data)
-      .enter().append("g")
-        .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
-
-    bar.append("rect")
-      .attr("y", 0)
-      .attr("height", function(d) { 
-        return y(d); })
-      .attr("width", Math.abs(barWidth ));
-
+  bar.append("rect")
+    .attr("y", function(d) {
+      var yv = height - Math.abs(y(d)/2) - height/2 + 2;
+      return yv;
+    })
+    .attr("height", function(d) {
+      return y(d); })
+    .attr("width", Math.abs(bar_width ));
 }
 
 function d( s ) {
