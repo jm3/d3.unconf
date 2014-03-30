@@ -1,10 +1,14 @@
+// TODO
+// - do we need a log scasle because this is audio data?
+
 var wave_json;
 var wave_uri = "http://public.jm3.net/d3/geiger.json";
 var max_points = 512;
 
 var width = 960,
-height = 60;
+height    = 60;
 
+// ints ranging from -32,767 to 32,767
 d3.json( wave_uri, function(error, json) {
   wave_json = json.data.slice(1, max_points);
   div_render( wave_json, ".waveform > div" );
@@ -12,9 +16,11 @@ d3.json( wave_uri, function(error, json) {
 });
 
 function div_render( data, div ) {
-  var y = d3.scale.linear().range([0, height]);
-  y.domain([0, d3.max(data, function(d) { return d; })]);
-  var x = d3.scale.linear().domain([0,data.length]);
+
+  var y = d3.scale.linear().range([height, -height]);
+  var x = d3.scale.linear().domain([0, data.length]);
+  var max_val = d3.max(data, function(d) { return d; });
+  y.domain([-max_val, max_val]);
 
   d3.select( div ).selectAll("div")
     .data(wave_json)
@@ -24,11 +30,17 @@ function div_render( data, div ) {
     .style("width", function(d) {
       return Math.abs(width/data.length) + "px";
     })
-    .style("height", function(d) {
-      return y(d) + "px";
+    .style("height", function(d,i) {
+      var h = parseInt(Math.abs(y(d)));
+      return h + "px";
     })
-    .style("margin-bottom", function(d) {
-      return (d > 0) ? 0 : parseInt(d) + "px";
+    .style("bottom", function(d) {
+      var bottom = height - Math.abs(y(d)/2) - height/2 + 2; // 2px slide up
+      return bottom + "px";
+    })
+    .style("left", function(d,i) {
+      var left =  x(i)*width;
+      return left + "px";
     });
 }
 
