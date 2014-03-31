@@ -1,9 +1,9 @@
 {
-  "name": "d3swimmo",
+  "name": "d3.unconf",
   "version": "0.0.1",
   "repository" : {
     "type" : "git",
-    "url"  : "https://github.com/jm3/d3swimmo"
+    "url" : "https://github.com/jm3/d3.unconf"
   },
   "devDependencies": {
     "browserify-shim":          "~3.3.2",
