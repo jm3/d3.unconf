@@ -139,7 +139,7 @@ module.exports = function (grunt) {
           }
 
         , scripts: {
-          files: ['**/*.js'],
+          files: [config.paths.src + '/**/*.js'],
         }
 
         , less: {
