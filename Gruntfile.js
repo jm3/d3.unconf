@@ -32,16 +32,6 @@ module.exports = function (grunt) {
                   }
               }
           }
-          , test: {
-              options: {
-                  middleware: function (connect) {
-                      return [
-                          connect.static(require('path').resolve(config.paths.dist))
-                        , connect.static(require('path').resolve('test'))
-                      ];
-                  }
-              }
-          }
           , build: { // serve the built bundle, mimicks live loading behavior with a real webserver
               options: {
                   middleware: function (connect) {
@@ -397,20 +387,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('server:build', [
         'connect:build'
-    ]);
-
-    grunt.registerTask('test', [
-        'test:unit',
-        'test:e2e'
-    ]);
-
-    grunt.registerTask('test:unit', [
-        'connect:test'
-    ]);
-
-
-    grunt.registerTask('test:e2e', [
-        'connect:test'
     ]);
 
     grunt.registerTask('build', [
