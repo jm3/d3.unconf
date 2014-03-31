@@ -1,11 +1,8 @@
-// TODO
-// - do we need a log scasle because this is audio data?
-
 var wave_json;
 var wave_uri = "http://public.jm3.net/d3/geiger.json";
-var max_points = 512;
+var max_points = 1024;
 
-var width = 960,
+var width = 920,
 height    = 140;
 
 // ints ranging from -32,767 to 32,767
