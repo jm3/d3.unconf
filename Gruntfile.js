@@ -152,6 +152,9 @@ module.exports = function (grunt) {
           , tasks: ['jade:watch']
         }
 
+        , gruntfile: {
+          files: ['Gruntfile.js']
+        }
 
       }
 
