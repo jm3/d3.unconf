@@ -8,11 +8,11 @@ html(lang='en')
 
     // build:css stylesheets/app.min.css
     //- the build directives will cause these to be bundled into one file
-    link(rel="stylesheet",type="text/css",href="stylesheets/fonts.css")
     link(rel="stylesheet",type="text/css",href="stylesheets/base.css")
     // endbuild
 
   body
+    include menu.jade
     .page
       h1 d3.swimmo
       h2 simple test: bar chart of race standings
