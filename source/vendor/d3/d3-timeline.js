@@ -19,6 +19,7 @@
         colorCycle        = d3.scale.category20(),
         colorPropertyName = null,
         display           = "rect",
+        displayRadius     = "2",
         beginning         = 0,
         ending            = 0,
         margin            = {left: 30, right:30, top: 30, bottom:30},
@@ -123,6 +124,8 @@
             .append(display)
             .attr('x', getXPos)
             .attr("y", getStackPosition)
+            .attr("rx", displayRadius)
+            .attr("ry", displayRadius)
             .attr("width", function (d, i) {
               return (d.ending_time - d.starting_time) * scaleFactor;
             })
