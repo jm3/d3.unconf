@@ -20,8 +20,7 @@ function map_it(options) {
 
   d3.json(geoDataUrl, function(error, geodata) {
     d = geodata;
-      console.log(d.objects);
-    console.log(collectionName, ": loaded", 
+    console.log(collectionName, ": loaded",
       d.objects[collectionName].geometries.length, "features");
 
     var projection = d3.geo.albers()
