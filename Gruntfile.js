@@ -139,7 +139,7 @@ module.exports = function (grunt) {
           }
 
         , scripts: {
-          files: [config.paths.src + '/javascriptsjs'],
+          files: [config.paths.src + '/javascripts/*.js'],
         }
 
         , less: {
@@ -250,8 +250,7 @@ module.exports = function (grunt) {
                 , dot    : true
                 , cwd    : config.paths.src
                 , src    : [
-                    '.htaccess'
-                  , '**/*.{gif,webp,ico,json,woff,ttf,eot,svg,swf}'
+                    '**/*.{gif,webp,ico,json,woff,ttf,eot,svg,swf}'
                   , '!stylesheets/**/*'
                   , '!vendor/bootstrap/fonts/**/*'
                 ]
@@ -281,7 +280,7 @@ module.exports = function (grunt) {
               files: [{
                   expand : true
                 , cwd    : config.paths.src
-                , src    : '**/*.less'
+                , src    : 'stylesheets/*.less'
                 , dest   : config.paths.srv
                 , ext    : '.css'
               }]
@@ -290,7 +289,7 @@ module.exports = function (grunt) {
               files: [{
                   expand : true
                 , cwd    : config.paths.src
-                , src    : '**/*.less'
+                , src    : 'stylesheets/*.less'
                 , dest   : config.paths.tmp
                 , ext    : '.css'
               }]
