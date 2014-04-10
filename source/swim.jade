@@ -8,19 +8,20 @@ html(lang='en')
 
     // build:css stylesheets/app.min.css
     //- the build directives will cause these to be bundled into one file
+    link(rel="stylesheet",type="text/css",href="http://fonts.googleapis.com/css?family=Roboto:400,100|Amatic+SC")
     link(rel="stylesheet",type="text/css",href="stylesheets/base.css")
     // endbuild
 
   body
     include menu.jade
     .page
-      h1 d3.swimmo
-      h2 simple test: bar chart of race standings
-      .graphs
-        .graph.dummy
-        //- actual interesting graphs would go here
+      h1 simple swim chart test in d3
+      h2 bar chart of race standings
+      .charts
+        .chart.dummy
+        //- actual interesting charts would go here
         //- ...
-        .graph.foo
+        .chart.foo
 
       ul.nav
         li
