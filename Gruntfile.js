@@ -139,21 +139,18 @@ module.exports = function (grunt) {
           }
 
         , scripts: {
-          files: [config.paths.src + '/**/*.js'],
+          files: [config.paths.src + '/javascriptsjs'],
         }
 
         , less: {
-            files: [config.paths.src + '/**/*.less']
+            files: [config.paths.src + '/styles/*.less']
           , tasks: ['less:watch']
         }
 
         , jade: {
             files: [config.paths.src + '/**/*.jade']
-          , tasks: [
-              'jade:watch'
-          ]
+          , tasks: ['jade:watch']
         }
-
 
 
       }
@@ -176,7 +173,7 @@ module.exports = function (grunt) {
               laxcomma : true
           },
           all: [
-              config.paths.src + '/javascripts/**/*.js'
+              config.paths.src + '/javascripts/*.js'
           ]
       }
 
