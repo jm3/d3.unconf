@@ -228,12 +228,7 @@ module.exports = function(grunt) {
         }, {
           expand: true,
           cwd: config.paths.src,
-          src: 'stylesheets/**/*',
-          dest: config.paths.tmp
-        }, {
-          expand: true,
-          cwd: config.paths.src,
-          src: '**/*.{png,jpg,jpeg}',
+          src: '**/*.{png,jpg}',
           dest: config.paths.tmp
         }, {
           expand: true,
@@ -312,7 +307,6 @@ module.exports = function(grunt) {
         },
         src: [
           config.paths.dist + '/**/*.{png,jpg,jpeg,gif,webp,svg,js,css,woff,ttf,eot,swf}',
-          '!' + config.paths.dist + '/vendor/**/coverflow.swf', // hack - usemin doesn't process js so this keeps coverflow from breaking
           '!' + config.paths.tmp
         ]
       }
@@ -387,8 +381,7 @@ module.exports = function(grunt) {
     'imagemin',                                            // minify images into dist
     'less:build',                                          // compile LESS -> CSS
     'useminPrepare',                                       // look for build blocks in HTML and configure css/js concat and min jobs
-    'concat:build/stylesheets/app.min.css',                // concat css into dist (auto-configured by useminPrepare)
-    'concat:build/javascripts/app.min.js',                 // concat js into dist (auto-configured by useminPrepare)
+    'concat',                // concat css into dist (auto-configured by useminPrepare)
     'uglify',                                              // explicitly run uglify (after concat) to compress JS; usemin claims to , but doesn't
     'cssmin',                                              // minify concatenated css (auto-configured by useminPrepare)
     'rev',                                                 // revision stamp everything for far-future clientside caching
