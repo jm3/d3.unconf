@@ -143,7 +143,7 @@ module.exports = function (grunt) {
         }
 
         , less: {
-            files: [config.paths.src + '/styles/*.less']
+            files: [config.paths.src + '/stylesheets/*.less']
           , tasks: ['less:watch']
         }
 
