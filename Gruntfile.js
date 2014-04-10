@@ -196,7 +196,7 @@ module.exports = function (grunt) {
                 expand: true
               , cwd  : config.paths.src
               , dest : config.paths.srv
-              , src  : ['views/**/*.jade','index.jade']
+              , src  : ['*.jade']
               , ext  : '.html'
             },{
                 expand: true
