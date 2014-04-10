@@ -22,7 +22,6 @@ function ready( error, data ) {
       })
       .style("background-color", function(d,i) {
         return color(d.Place);
-        return "#0000FF";
       })
       .text(function(d) {
         return d.Meet + ": " + d.Place;
