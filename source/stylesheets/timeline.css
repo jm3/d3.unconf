@@ -1,29 +1,22 @@
-.axis path,
-.axis line {
-  fill: none;
-  stroke: black;
-  shape-rendering: crispEdges;
+* {
+  font-family: 'Roboto', sans-serif;
 }
 
-.axis text {
-  font-family: sans-serif;
-  font-size: 10px;
+text.timeline-label {
+  display: none;
 }
 
-.timeline-label {
-  font-family: sans-serif;
-  font-size: 12px;
+.who {
+  border-radius:  8px;
+  border:         2px solid #ddd;
+  padding:        4px;
+  width:          200px;
 }
 
-#timeline2 .axis {
-  transform: translate(0px,30px);
-  -ms-transform: translate(0px,30px); /* IE 9 */
-  -webkit-transform: translate(0px,30px); /* Safari and Chrome */
-  -o-transform: translate(0px,30px); /* Opera */
-  -moz-transform: translate(0px,30px); /* Firefox */
+.who img.icon {
+  border:          0;
+  height:          32px;
+  margin-right:    8px;
+  vertical-align:  middle;
+  width:           32px;
 }
-
-.coloredDiv {
-  height:20px; width:20px; float:left;
-}
-
