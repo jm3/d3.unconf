@@ -1,7 +1,6 @@
-_
 /build
 /node_modules
-/npm-debug.log
-.tmp-build/
-.tmp-serve/
-source/team-timeline.csv
+/.tmp-build/
+/.tmp-serve/
+/source/team-timeline.csv
+/source/javascripts/bower_components/
