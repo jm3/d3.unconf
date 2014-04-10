@@ -6,7 +6,7 @@ queue()
 
 function ready( error, data ) {
 
-  d3.select(".dummy")
+  d3.select(".swim")
     .selectAll("div")
       .data(data, function(d) { return d.Date+d.Time; })
     .enter().append("div")
