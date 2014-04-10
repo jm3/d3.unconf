@@ -1,0 +1,27 @@
+doctype
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='description', content='')
+    meta(name='author', content='jm3')
+    title team timeline in d3
+
+    // build:css stylesheets/app.min.css
+    //- the build directives will cause these to be bundled into one file
+    link(rel="stylesheet",type="text/css",href="http://fonts.googleapis.com/css?family=Roboto:400,100|Amatic+SC")
+    link(rel="stylesheet",type="text/css",href="stylesheets/timeline.css")
+    // endbuild
+
+  body
+    .page
+      h1 d3 timeline
+      .timeline
+
+    // build:js(source/) javascripts/app.min.js
+    script(src="http://d3js.org/d3.v3.min.js")
+    script(src="http://d3js.org/topojson.v1.min.js")
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js")
+    script(src="vendor/d3/d3-timeline.js")
+    script(src="javascripts/team-timeline.js")
+    // endbuild
+
