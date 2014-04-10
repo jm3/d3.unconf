@@ -7,7 +7,7 @@ function init(options) {
 
       var icon_url_prefix = "http://public.140proof.com/blog/team/";
       var team_data       = [];
-      var width           = 960;
+      var width           = 1024;
 
       $.each(data, function(i,d) {
         var start = new Date( d["Hire Date"] ).getTime()

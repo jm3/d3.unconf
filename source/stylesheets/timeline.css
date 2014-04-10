@@ -2,6 +2,10 @@
   font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+  font-size: 18px;
+}
+
 text.timeline-label {
   display: none;
 }

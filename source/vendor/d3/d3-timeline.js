@@ -25,8 +25,8 @@
         stacked           = false,
         rotateTicks       = false,
         timeIsRelative    = false,
-        itemHeight        = 20,
-        itemMargin        = 5,
+        itemHeight        = 12,
+        itemMargin        = 2,
         showTodayLine     = false,
         showTodayFormat   = {marginTop: 25, marginBottom: 0, width: 1, color: colorCycle}
       ;
