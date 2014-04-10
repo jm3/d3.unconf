@@ -6,14 +6,26 @@ queue()
 
 function ready( error, data ) {
 
+  var color = d3.scale.linear()
+    .domain([
+      min_for_cols(["Place"], data),
+      max_for_cols(["Place"], data)
+    ])
+    .range(["#7BCCC4", "#084081"]); // blues
+
   d3.select(".swim")
     .selectAll("div")
-      .data(data, function(d) { return d.Date+d.Time; })
+      .data(data, function(d) { return d.Date + d.Time; })
     .enter().append("div")
-      .style("width", function(d) { return (50 + d.Place * 10) + "px"; })
-      .style("color", function(d) { return (50 + d.Place * 10) + "px"; })
-      .text(function(d) { return d.Meet + ": " + d.Place; });
-
-  // dump data: $.each(data, function(index, val) { console.log(val) });
+      .style("width", function(d) {
+        return (d.Place * 50 ) + "px";
+      })
+      .style("background-color", function(d,i) {
+        return color(d.Place);
+        return "#0000FF";
+      })
+      .text(function(d) {
+        return d.Meet + ": " + d.Place;
+      });
 }
 
